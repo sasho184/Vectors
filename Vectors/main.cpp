@@ -1,4 +1,5 @@
 #include <iostream>
+#include <exception>
 #include "Element.h"
 #include "Point.h"
 #include "Vector.h"
@@ -7,23 +8,21 @@ using namespace std;
 
 int main() {
 
-	Point A(25.3, -2, -87);
-	Point B(36, -22.2, -3.56);
+	Point A(1, 0, 1);
+	Point B(2, 0, 2);
 
 	Vector v1(A, B);
-	Vector v2(0, 0, 0);
+	Vector v2(2, 0, -2);
 
-	Vector v1Len(v1.Direction());
+	cout << "v1 sides: " << endl;
 
-
-	cout << v1Len.getX() << endl;
-	cout << v1Len.getY() << endl;
-	cout << v1Len.getZ() << endl;
-
-	cout << "v1Len length " << v1Len.Length() << endl;
+	cout << v1.getX() << endl;
+	cout << v1.getY() << endl;
+	cout << v1.getZ() << endl;
 
 
-	cout << "is zero " << v2.isZero() << endl;
+
+	cout << "is Perpendicular " << v1.isPerpendicular(v2) << endl;
 
 	return 0;
 }

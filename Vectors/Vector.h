@@ -16,6 +16,8 @@ public:
     double Length() const;
     Vector Direction() const;
     bool isZero() const;
+    bool isParallel(const Vector&) const;
+    bool isPerpendicular(const Vector&) const;
 
 private:
 

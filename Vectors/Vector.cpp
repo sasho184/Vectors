@@ -44,3 +44,14 @@ bool Vector::isZero() const {
 	}
 	return false;
 }
+
+bool Vector::isParallel(const Vector& vector) const {// Checks if the three sides ratios are the same x.v1 + y.v2 + z.v3 = 0
+	if (((this->getX()/vector.getX()) == (this->getY()/vector.getY())) && ((this->getX() / vector.getX()) == (this->getZ() / vector.getZ()))) return true;
+	return false;
+}
+
+bool Vector::isPerpendicular(const Vector& vector) const {// Checks if x.v1 + y.v2 + z.v3 = 0
+	//std::cout << "numbers: " << (this->getZ() * vector.getZ()) << std::endl;
+	if ( ((this->getX()*vector.getX()) + (this->getY()*vector.getY()) + (this->getZ()*vector.getZ())) == 0) return true;
+	return false;
+}
