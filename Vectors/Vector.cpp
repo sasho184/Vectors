@@ -1,4 +1,4 @@
-#include "Vector.h"
+﻿#include "Vector.h"
 
 Vector::Vector() :Point() {
 
@@ -29,13 +29,15 @@ Vector& Vector::operator=(const Vector& rhs) {
 	return *this;
 }
 
-double Vector::Length() const {
+double Vector::length() const {
 	return sqrt(pow(this->getX(), 2) + pow(this->getY(), 2) + pow(this->getZ(), 2));
 }
 
-//TODO VectorLengthException
-Vector Vector::Direction() const {
-	return Vector((this->getX() / this->Length()), (this->getY() / this->Length()), (this->getZ() / this->Length()));
+Vector Vector::direction() const {
+	if (this->isZero()) {
+		throw VectorLengthException();
+	}
+	return Vector((this->getX() / this->length()), (this->getY() / this->length()), (this->getZ() / this->length()));
 }
 
 bool Vector::isZero() const {
@@ -45,13 +47,49 @@ bool Vector::isZero() const {
 	return false;
 }
 
-bool Vector::isParallel(const Vector& vector) const {// Checks if the three sides ratios are the same x.v1 + y.v2 + z.v3 = 0
+bool Vector::isParallel(const Vector& vector) const { // Checks if the three sides ratios are the same x.v1 + y.v2 + z.v3 = 0
+	if (this->isZero()) {
+		throw VectorLengthException();
+	}
 	if (((this->getX()/vector.getX()) == (this->getY()/vector.getY())) && ((this->getX() / vector.getX()) == (this->getZ() / vector.getZ()))) return true;
 	return false;
 }
 
-bool Vector::isPerpendicular(const Vector& vector) const {// Checks if x.v1 + y.v2 + z.v3 = 0
-	//std::cout << "numbers: " << (this->getZ() * vector.getZ()) << std::endl;
-	if ( ((this->getX()*vector.getX()) + (this->getY()*vector.getY()) + (this->getZ()*vector.getZ())) == 0) return true;
+bool Vector::isPerpendicular(const Vector& vector) const { // Checks if x.v1 + y.v2 + z.v3 = 0
+	if (this->isZero()) {
+		throw VectorLengthException();
+	}
+	if (((this->getX()*vector.getX()) + (this->getY()*vector.getY()) + (this->getZ()*vector.getZ())) == 0) return true;
 	return false;
+}
+
+Vector Vector::operator+(const Vector& rhs)  const{ // a + v = (x, y, z) + (v1, v2, v3) = (x + v1, y + v2, z + v3);
+	return Vector(getX() + rhs.getX(), getY() + rhs.getY(), getZ() + rhs.getZ());
+}
+
+Vector Vector::operator-(const Vector& rhs) const { // a − v = (x, y, z) − (v1, v2, v3) = (x − v1, y − v2, z − v3)
+	return Vector(getX() - rhs.getX(), getY() - rhs.getY(), getZ() - rhs.getZ());
+}
+
+Vector Vector::operator^(const Vector& rhs) const { // a ∧ v = (y.v3 − z.v2, −x.v3 + z.v1, x.v2 − y.v1).
+	double x, y, z;
+
+	x = getY() * rhs.getZ() - getZ() * rhs.getY();
+	y = (-getX()) * rhs.getZ() + getZ() * rhs.getX();
+	z = getX() * rhs.getY() - getY() * rhs.getX();
+
+	return Vector(x, y, z);
+}
+
+Vector operator*(int r, const Vector& rhs) { // r ∗ a = (rx, ry, rz);
+	return Vector(r * rhs.getX(), r * rhs.getY(), r * rhs.getZ());
+}
+
+double operator*(const Vector& lhs, const Vector& rhs) { // a ∗ v = x.v1 + y.v2 + z.v3
+	return lhs.getX() * rhs.getX() + lhs.getY() * rhs.getY() + lhs.getZ() * rhs.getZ();
+}
+
+double Vector::operator()(const Vector&, const Vector&) const {
+	//TODO smeseno proizvedenie
+	return 0;
 }

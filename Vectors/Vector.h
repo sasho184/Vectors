@@ -1,5 +1,6 @@
 #pragma once
 #include "Point.h"
+#include "Exceptions.h"
 #include <cmath>
 
 class Vector :
@@ -13,13 +14,21 @@ public:
     Vector(const Vector&);
     Vector& operator=(const Vector&);
 
-    double Length() const;
-    Vector Direction() const;
+    double length() const;
+    Vector direction() const;
     bool isZero() const;
     bool isParallel(const Vector&) const;
     bool isPerpendicular(const Vector&) const;
+
+    Vector operator+(const Vector&) const;
+    Vector operator-(const Vector&) const;
+    Vector operator^(const Vector&) const;
+    double operator()(const Vector&, const Vector&) const;
+
 
 private:
 
 };
 
+Vector operator*(int, const Vector&);
+double operator*(const Vector&, const Vector&);
