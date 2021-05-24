@@ -1,5 +1,9 @@
 #include "Line.h"
 
+Line::Line():Vector() {
+	this->pt = Point();
+}
+
 Line::Line(Point pt, Vector v):Vector(v.getX(), v.getY(), v.getZ()) {
 	this->pt = pt;
 }
@@ -8,7 +12,7 @@ Line::Line(Point pt1, Point pt2):Vector(pt1, pt2) {
 	this->pt = pt1;
 }
 
-Vector Line::direction() const {
+Vector* Line::direction() const {
 	return Vector::direction();
 }
 
@@ -35,4 +39,10 @@ double Line::angle(Vector v) const {
 	}
 	
 	return 0;
+}
+
+std::ostream& Line::ins(std::ostream& out) const {
+	out << "Line vector x/y/z: " << getX() << "/" << getY() << "/" << getZ() << std::endl;
+	out << "Line point x/y/z: " << pt.getX() << "/" << pt.getY() << "/" << pt.getZ() << std::endl;
+	return out;
 }
