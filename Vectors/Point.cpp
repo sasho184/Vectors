@@ -27,28 +27,3 @@ Point& Point::operator=(const Point& rhs) {
 bool Point::operator==(const Point& rhs) const {
 	return Element::operator==(rhs);
 }
-
-double Point::length() const{
-	return 0;
-}
-
-Point* Point::direction() const{
-	return 0;
-}
-
-bool Point::isZero() const{
-	return 0;
-}
-
-bool Point::isParallel(const Element&) const{
-	return 0;
-}
-
-bool Point::isPerpendicular(const Element&) const{
-	return 0;
-}
-
-/*
-std::ostream& Point::ins(std::ostream& out) const {
-	return out << "Point x/y/z: " << getX() << "/" << getY() << "/" << getZ();
-}*/

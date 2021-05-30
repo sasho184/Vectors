@@ -12,13 +12,9 @@ int main() {
 	Point A(0, 0, 0);
 	Point B(5, 22, 6);
 
-	Vector v1(1, 2, 3);
-
-	Vector v2(4, 5, 6);
-
-	Vector v3(7, 8, 9);
+	Line l1(A, B);
 	
-	cout << v1(v2, v3);
+	cout << l1.normal().getX() << endl << l1.normal().getY() << endl << l1.normal().getZ() << endl;
 
 	return 0;
 }

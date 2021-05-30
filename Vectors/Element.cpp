@@ -56,11 +56,3 @@ bool Element::operator==(const Element& rhs) const {
 		return false;
 	}
 }
-
-std::ostream& Element::ins(std::ostream& out) const {
-	return out << "Element x/y/z: " << x << "/" << y << "/" << z;
-}
-
-std::ostream& operator<<(std::ostream& lhs, const Element& rhs) {
-	return rhs.ins(lhs);
-}

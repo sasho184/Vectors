@@ -20,14 +20,6 @@ public:
 
 	virtual bool operator==(const Element&) const;
 
-	virtual double length() const=0;
-	virtual Element* direction() const=0;
-	virtual bool isZero() const=0;
-	virtual bool isParallel(const Element&) const=0;
-	virtual bool isPerpendicular(const Element&) const=0;
-
-	virtual std::ostream& ins(std::ostream&) const;
-
 private:
 	double x;
 	double y;
@@ -35,4 +27,3 @@ private:
 
 };
 
-std::ostream& operator<<(std::ostream&, const Element&);
