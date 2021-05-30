@@ -1,5 +1,9 @@
 #include "Line.h"
 
+Line::Line() :Vector() {
+	this->pt = Point();
+}
+
 Line::Line(Point pt, Vector v):Vector(v.getX(), v.getY(), v.getZ()) {
 	this->pt = pt;
 }

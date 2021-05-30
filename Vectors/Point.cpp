@@ -27,3 +27,7 @@ Point& Point::operator=(const Point& rhs) {
 bool Point::operator==(const Point& rhs) const {
 	return Element::operator==(rhs);
 }
+
+std::ostream& Point::ins(std::ostream& out) const {
+	return out << "Point x/y/z: " << getX() << "/" << getY() << "/" << getZ();
+}

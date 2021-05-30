@@ -89,7 +89,15 @@ double operator*(const Vector& lhs, const Vector& rhs) { // a ∗ v = x.v1 + y.v
 	return lhs.getX() * rhs.getX() + lhs.getY() * rhs.getY() + lhs.getZ() * rhs.getZ();
 }
 
-double Vector::operator()(const Vector&, const Vector&) const {
-	//TODO smeseno proizvedenie
-	return 0;
+double Vector::operator()(const Vector& v, const Vector& w) const {	//Mixed product of three vectors - Sarus
+	double a, b;
+
+	a = (this->getX() * v.getY() * w.getZ() + this->getY() * v.getZ() * w.getX() + this->getZ() * v.getX() * w.getY());
+	b = (this->getZ() * v.getY() * w.getX() + this->getX() * v.getZ() * w.getY() + this->getY() * v.getX() * w.getZ());
+
+	return a - b;
+}
+
+std::ostream& Vector::ins(std::ostream& out) const {
+	return out << "Vector x/y/z: " << getX() << "/" << getY() << "/" << getZ();
 }

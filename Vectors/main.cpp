@@ -14,7 +14,9 @@ int main() {
 
 	Line l1(A, B);
 	
-	cout << l1.normal().getX() << endl << l1.normal().getY() << endl << l1.normal().getZ() << endl;
+	Vector v1(A, B);
+
+	cout << v1;
 
 	return 0;
 }

@@ -25,6 +25,7 @@ public:
     Vector operator^(const Vector&) const;
     double operator()(const Vector&, const Vector&) const;
 
+    virtual std::ostream& ins(std::ostream&) const;
 
 private:
 

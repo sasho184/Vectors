@@ -20,6 +20,8 @@ public:
 
 	virtual bool operator==(const Element&) const;
 
+	virtual std::ostream& ins(std::ostream&) const;
+
 private:
 	double x;
 	double y;
@@ -27,3 +29,4 @@ private:
 
 };
 
+std::ostream& operator<<(std::ostream&, const Element&);

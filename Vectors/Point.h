@@ -12,6 +12,8 @@ public:
 
 
     bool operator==(const Point&) const;
+
+    virtual std::ostream& ins(std::ostream&) const;
 private:
 
 };
