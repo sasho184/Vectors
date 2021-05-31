@@ -4,6 +4,7 @@
 #include "Point.h"
 #include "Vector.h"
 #include "Line.h"
+#include "Triangle"
 
 using namespace std;
 
@@ -11,6 +12,7 @@ int main() {
 
 	Point A(0, 0, 0);
 	Point B(5, 22, 6);
+	Point C(3, 4, 0);
 
 	Line l1(A, B);
 	
