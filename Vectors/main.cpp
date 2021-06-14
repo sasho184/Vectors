@@ -4,11 +4,13 @@
 #include "Point.h"
 #include "Vector.h"
 #include "Line.h"
-#include "Triangle"
+
 
 using namespace std;
 
 int main() {
+
+	Element e(0,0,0);
 
 	Point A(0, 0, 0);
 	Point B(5, 22, 6);

@@ -1,5 +1,5 @@
 #pragma once
-#include <iostream.h>
+#include <iostream>
 #include "Point.h"
 
 using namespace std;
