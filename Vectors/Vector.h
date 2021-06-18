@@ -15,15 +15,15 @@ public:
     Vector& operator=(const Vector&);
 
     double length() const;
-    Vector direction() const;
+    Element* direction() const;
     bool isZero() const;
-    bool isParallel(const Vector&) const;
-    bool isPerpendicular(const Vector&) const;
+    bool isParallel(const Element&) const;
+    bool isPerpendicular(const Element&) const;
 
-    Vector operator+(const Vector&) const;
-    Vector operator-(const Vector&) const;
-    Vector operator^(const Vector&) const;
-    double operator()(const Vector&, const Vector&) const;
+    Element* operator+(const Element&) const; // subirane na dva vektora
+    Element* operator-(const Element&) const; // izvajdane na dva vektora
+    Element* operator^(const Element&) const; // vektorno proizvedenie na dva vektora
+    double operator()(const Element&, const Element&) const; // smeseno proizvedenie na tri vektora
 
     virtual std::ostream& ins(std::ostream&) const;
 
@@ -31,5 +31,5 @@ private:
 
 };
 
-Vector operator*(int, const Vector&);
-double operator*(const Vector&, const Vector&);
+Vector operator*(double, const Element&); // umnojenie na vektor s realno chislo
+double operator*(const Element&, const Element&); // skalarno proizvedenie na dva vektora

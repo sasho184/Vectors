@@ -19,8 +19,19 @@ public:
 	double getZ() const { return z; };
 
 	virtual bool operator==(const Element&) const;
-
 	virtual std::ostream& ins(std::ostream&) const;
+
+
+	virtual double length() const = 0;
+	virtual Element* direction() const = 0;
+	virtual bool isZero() const = 0;
+	virtual bool isParallel(const Element&) const = 0;
+	virtual bool isPerpendicular(const Element&) const = 0;
+
+	virtual Element* operator+(const Element&) const = 0;
+	virtual Element* operator-(const Element&) const = 0;
+	virtual Element* operator^(const Element&) const = 0;
+	virtual double operator()(const Element&, const Element&) const = 0;
 
 private:
 	double x;
