@@ -13,13 +13,8 @@ int main() {
 	int entry = 0;
 	int operation = 0;
 	double x = 0, y = 0, z = 0;
+	double x1, y1, z1;
 	Element* object = nullptr;
-
-	Vector v1(1, 2, 3);
-	Vector v2(4, 5, 6);
-
-	//cout << v1 + v2;
-
 
 	do {
 
@@ -35,6 +30,7 @@ int main() {
 			cout << endl << "Enter x,y and z for the point: ";
 			cin >> x >> y >> z;
 			object = new Point(x, y, z);
+
 			pointOperation(object);
 			break;
 		case 2:
@@ -43,18 +39,24 @@ int main() {
 			object = new Vector(x, y, z);
 
 			vectorOperation(object);
-
-			if (object != nullptr) {
-				delete object;
-				object = nullptr;
-			}
-			
 			break;
 		case 3:
+			cout << endl << "Enter x, y and z for the point: ";
+			cin >> x >> y >> z;
+			cout << endl << "Enter x, y and z for the vector: ";
+			cin >> x1 >> y1 >> z1;
+			object = new Line(Point(x, y, z), Vector(x1, y1, z1));
+
+			lineOperation(object);
 			break;
 		case 4:
 			exitProg = true;
 			break;
+		}
+
+		if (object != nullptr) {
+			delete object;
+			object = nullptr;
 		}
 	} while (!exitProg);
 

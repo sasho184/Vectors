@@ -24,13 +24,42 @@ char inputDataYN() {
 }
 
 int inputSecVect(double& x, double& y, double& z) {
-	std::cout << "Enter x,y and z for the vector: ";
+	std::cout << "Enter x, y and z for the vector: ";
 	std::cin >> x >> y >> z;
 	return 0;
 }
 
-int pointOperation(Element* point1) {
+int pointOperation(Element* pt1) {
+	char cont = 'n';
+	int operation;
+	double x, y, z;
+	bool result = false;
+	Element* returnObject = nullptr;
+	Element* pt2 = nullptr;
 
+	do {
+		std::cout << std::endl << "Select an operation from the menu: \n"
+			<< "1  - Check if two points match\n";
+
+		operation = inputDataInt(1, 11);
+		cont = 'n';
+		switch (operation) {
+		case 1:
+			std::cout << "Enter x, y and z for the point: ";
+			std::cin >> x >> y >> z;
+			pt2 = new Point(x, y, z);
+			std::cout << std::endl << "The points" << ((*pt1 == *pt2) ? " " : " don't ") << "match.";
+			break;
+		}
+
+		if (returnObject != nullptr) {
+			delete returnObject;
+			returnObject = nullptr;
+		}
+
+		std::cout << std::endl << "Do you want to select a new operation?(y/n) ";
+		cont = inputDataYN();
+	} while (cont == 'y');
 	return 0;
 }
 
@@ -59,7 +88,7 @@ int vectorOperation(Element* vect1) {
 			<< "11 - Mixed product of three vectors\n";
 
 		operation = inputDataInt(1, 11);
-		cont = false;
+		cont = 'n';
 		switch (operation) {
 		case 1:
 			std::cout << std::endl << "Vector length is: " << vect1->length() << std::endl;
@@ -154,5 +183,36 @@ int vectorOperation(Element* vect1) {
 		cont = inputDataYN();
 	} while (cont == 'y');
 
+	return 0;
+}
+
+int lineOperation(Element* line1) {
+	char cont = 'n';
+	int operation;
+	double x, y, z;
+	bool result = false;
+	Element* returnObject = nullptr;
+	Element* line2 = nullptr;
+
+	do {
+		std::cout << std::endl << "Select an operation from the menu: \n"
+			<< "1  - Calculate line direction\n"
+			<< "2  - Calculate normal vector\n";
+
+		operation = inputDataInt(1, 11);
+		cont = 'n';
+		switch (operation) {
+		case 1:
+			break;
+		}
+
+		if (returnObject != nullptr) {
+			delete returnObject;
+			returnObject = nullptr;
+		}
+
+		std::cout << std::endl << "Do you want to select a new operation?(y/n) ";
+		cont = inputDataYN();
+	} while (cont == 'y');
 	return 0;
 }

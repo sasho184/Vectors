@@ -14,4 +14,4 @@ char inputDataYN();
 int inputSecVect(double&, double&, double&);
 int pointOperation(Element*);
 int vectorOperation(Element*);
-
+int lineOperation(Element*);
