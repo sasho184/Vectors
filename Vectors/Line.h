@@ -9,7 +9,7 @@ public:
     Line(Point, Point);
 
     Element* direction() const;
-    Vector normal() const;
+    Element* normal() const;
     double angle(Vector) const;
 
 private:

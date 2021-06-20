@@ -24,6 +24,7 @@ public:
 
 	virtual double length() const = 0;
 	virtual Element* direction() const = 0;
+	virtual Element* normal() const = 0;
 	virtual bool isZero() const = 0;
 	virtual bool isParallel(const Element&) const = 0;
 	virtual bool isPerpendicular(const Element&) const = 0;

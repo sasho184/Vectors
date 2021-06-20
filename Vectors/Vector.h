@@ -16,6 +16,7 @@ public:
 
     double length() const;
     Element* direction() const;
+    virtual Element* normal() const;
     bool isZero() const;
     bool isParallel(const Element&) const;
     bool isPerpendicular(const Element&) const;

@@ -40,6 +40,10 @@ Element* Point::direction() const {
 	return 0;
 }
 
+Element* Point::normal() const {
+	return 0;
+}
+
 bool Point::isZero() const {
 	return 0;
 }

@@ -17,7 +17,7 @@ Element* Line::direction() const {
 	return Vector::direction();
 }
 
-Vector Line::normal() const { // https://sciencing.com/plane-3-points-8123924.html
+Element* Line::normal() const { // https://sciencing.com/plane-3-points-8123924.html
 	double x, y, z;
 
 	//x*v1 + y*v2 + z*v3 = 0 - dot product
@@ -28,7 +28,7 @@ Vector Line::normal() const { // https://sciencing.com/plane-3-points-8123924.ht
 
 	z = -(getX()+getY()) / getZ();
 
-	return Vector(x, y, z);
+	return new Vector(x, y, z);
 }
 
 double Line::angle(Vector v) const {

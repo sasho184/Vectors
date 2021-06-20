@@ -203,6 +203,19 @@ int lineOperation(Element* line1) {
 		cont = 'n';
 		switch (operation) {
 		case 1:
+			try {
+				returnObject = line1->direction();
+				if (returnObject) {
+					std::cout << std::endl << "The directional vector of the line is: " << *returnObject << std::endl;
+				}
+			}
+			catch (...) {
+				std::cout << std::endl << "Exception caught! Vector length is 0 and doesn't have a direction." << std::endl;
+			}
+			break;
+		case 2:
+			returnObject = line1->normal();
+			std::cout << std::endl << "Normal vector of  the line is: " << *returnObject << std::endl;
 			break;
 		}
 

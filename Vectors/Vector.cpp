@@ -40,6 +40,10 @@ Element* Vector::direction() const {
 	return new Vector((this->getX() / this->length()), (this->getY() / this->length()), (this->getZ() / this->length()));
 }
 
+Element* Vector::normal() const {
+	return 0;
+}
+
 bool Vector::isZero() const {
 	if (this->getX() == 0 && this->getY() == 0 && this->getZ() == 0) {
 		return true;
