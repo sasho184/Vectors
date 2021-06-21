@@ -189,7 +189,7 @@ int vectorOperation(Element* vect1) {
 int lineOperation(Element* line1) {
 	char cont = 'n';
 	int operation;
-	double x, y, z;
+	//double x, y, z;
 	bool result = false;
 	Element* returnObject = nullptr;
 	Element* line2 = nullptr;

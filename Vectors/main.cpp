@@ -5,6 +5,7 @@
 #include "Vector.h"
 #include "Line.h"
 #include "UserInterface.h"
+#include "Triangle.h"
 
 using namespace std;
 
@@ -15,6 +16,13 @@ int main() {
 	double x = 0, y = 0, z = 0;
 	double x1, y1, z1;
 	Element* object = nullptr;
+
+
+	Point A(1,2,3);
+	Point B(5,6,7);
+
+	cout << distance(A, B);
+
 
 	do {
 

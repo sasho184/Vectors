@@ -12,11 +12,19 @@ public:
 	Triangle(Point, Point, Point);
 	~Triangle();
 
-	
+	double getSideA();
+	double getSideB();
+	double getSideC();
 
+	int type();
 
 private:
-	Point A;
 	Point B;
 	Point C;
+
+	double sideA;
+	double sideB;
+	double sideC;
 };
+
+double distance(Point, Point);

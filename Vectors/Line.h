@@ -7,6 +7,7 @@ public:
     Line();
     Line(Point, Vector);
     Line(Point, Point);
+    ~Line();
 
     Element* direction() const;
     Element* normal() const;

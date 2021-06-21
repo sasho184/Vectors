@@ -12,6 +12,10 @@ Line::Line(Point pt1, Point pt2):Vector(pt1, pt2) {
 	this->pt = pt1;
 }
 
+Line::~Line() {
+
+}
+
 Element* Line::direction() const {
 
 	return Vector::direction();
