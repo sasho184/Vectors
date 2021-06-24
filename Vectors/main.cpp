@@ -17,12 +17,20 @@ int main() {
 	double x1, y1, z1;
 	Element* object = nullptr;
 
+	Element* testObj = nullptr;
 
-	Point A(1,2,3);
-	Point B(5,6,7);
 
-	cout << distance(A, B);
+	Point A(1, 2, 5);
+	Vector B(2, 3, 4);
 
+	Point C(1, 2, 5);
+	Vector D(2, 3, 4);
+	
+	object = new Line(A, B);
+
+	testObj = new Line(C, D);
+
+	cout << (*object || *testObj) << endl;
 
 	do {
 
@@ -65,6 +73,10 @@ int main() {
 		if (object != nullptr) {
 			delete object;
 			object = nullptr;
+		}
+		if (testObj != nullptr) {
+			delete testObj;
+			testObj = nullptr;
 		}
 	} while (!exitProg);
 

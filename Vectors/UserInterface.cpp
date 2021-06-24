@@ -189,7 +189,7 @@ int vectorOperation(Element* vect1) {
 int lineOperation(Element* line1) {
 	char cont = 'n';
 	int operation;
-	//double x, y, z;
+	double x, y, z, x1, y1, z1;
 	bool result = false;
 	Element* returnObject = nullptr;
 	Element* line2 = nullptr;
@@ -197,7 +197,11 @@ int lineOperation(Element* line1) {
 	do {
 		std::cout << std::endl << "Select an operation from the menu: \n"
 			<< "1  - Calculate line direction\n"
-			<< "2  - Calculate normal vector\n";
+			<< "2  - Calculate normal vector\n"
+			<< "3  - Calculate angle between lines\n"
+			<< "4  - \n"
+			<< "5  - Check if two lines are parallel\n"
+			<< "6  - Check if two lines match\n";
 
 		operation = inputDataInt(1, 11);
 		cont = 'n';
@@ -217,11 +221,48 @@ int lineOperation(Element* line1) {
 			returnObject = line1->normal();
 			std::cout << std::endl << "Normal vector of  the line is: " << *returnObject << std::endl;
 			break;
+		case 3:
+			std::cout << std::endl << "Enter x, y and z for the point: ";
+			std::cin >> x >> y >> z;
+			std::cout << std::endl << "Enter x, y and z for the vector: ";
+			std::cin >> x1 >> y1 >> z1;
+
+			line2 = new Vector(x1, y1, z1);
+
+			std::cout << std::endl << "The angle between the lines is " << line1->angle(line2) << std::endl;
+
+			break;
+		case 4:
+			break;
+		case 5:
+			std::cout << std::endl << "Enter x, y and z for the point: ";
+			std::cin >> x >> y >> z;
+			std::cout << std::endl << "Enter x, y and z for the vector: ";
+			std::cin >> x1 >> y1 >> z1;
+
+			line2 = new Line(Point(x, y, z), Vector(x1, y1, z1));
+
+			std::cout << std::endl << "The two lines are" << ((*line1||*line2)? " ": " not ") << "parallel." << std::endl;
+			break;
+		case 6:
+			std::cout << std::endl << "Enter x, y and z for the point: ";
+			std::cin >> x >> y >> z;
+			std::cout << std::endl << "Enter x, y and z for the vector: ";
+			std::cin >> x1 >> y1 >> z1;
+
+			line2 = new Line(Point(x, y, z), Vector(x1, y1, z1));
+
+			std::cout << std::endl << "The two lines" << ((*line1 == *line2) ? " " : " do not ") << "match." << std::endl;
+			break;
 		}
 
 		if (returnObject != nullptr) {
 			delete returnObject;
 			returnObject = nullptr;
+		}
+		if (line2 != nullptr) {
+			delete line2;
+			line2 = nullptr;
 		}
 
 		std::cout << std::endl << "Do you want to select a new operation?(y/n) ";

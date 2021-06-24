@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include "Point.h"
+#include "Vector.h"
 
 using namespace std;
 
@@ -17,6 +18,10 @@ public:
 	double getSideC();
 
 	int type();
+	double S();
+	double P();
+	Point centroid();
+	bool isInside(Point);
 
 private:
 	Point B;

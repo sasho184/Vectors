@@ -45,18 +45,6 @@ int Element::setZ(double z) {
 	return 0;
 }
 
-bool Element::operator==(const Element& rhs) const {
-	if (this == &rhs) {
-		return true;
-	}
-	if (x == rhs.x && y == rhs.y && z == rhs.z) {
-		return true;
-	}
-	else {
-		return false;
-	}
-}
-
 std::ostream& Element::ins(std::ostream& out) const {
 	return out << "Element x/y/z: " << x << "/" << y << "/" << z;
 }

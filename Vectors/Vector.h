@@ -28,6 +28,10 @@ public:
 
     virtual std::ostream& ins(std::ostream&) const;
 
+    virtual bool operator==(const Element&) const { return 0; };
+
+    virtual bool operator||(const Element&) const { return 0; };
+
 private:
 
 };

@@ -24,8 +24,16 @@ Point& Point::operator=(const Point& rhs) {
 }
 
 
-bool Point::operator==(const Point& rhs) const {
-	return Element::operator==(rhs);
+bool Point::operator==(const Element& rhs) const {
+	if (this == &rhs) {
+		return true;
+	}
+	if (this->getX() == rhs.getX() && this->getX() == rhs.getY() && this->getZ() == rhs.getZ()) {
+		return true;
+	}
+	else {
+		return false;
+	}
 }
 
 std::ostream& Point::ins(std::ostream& out) const {
@@ -41,6 +49,10 @@ Element* Point::direction() const {
 }
 
 Element* Point::normal() const {
+	return 0;
+}
+
+double Point::angle(Element*) const {
 	return 0;
 }
 
