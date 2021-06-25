@@ -14,23 +14,9 @@ int main() {
 	int entry = 0;
 	int operation = 0;
 	double x = 0, y = 0, z = 0;
-	double x1, y1, z1;
+	double x1, y1, z1, x2, y2, z2;
 	Element* object = nullptr;
-
 	Element* testObj = nullptr;
-
-
-	Point A(1, 2, 5);
-	Vector B(2, 3, 4);
-
-	Point C(1, 2, 5);
-	Vector D(2, 3, 4);
-	
-	object = new Line(A, B);
-
-	testObj = new Line(C, D);
-
-	cout << (*object || *testObj) << endl;
 
 	do {
 
@@ -38,8 +24,9 @@ int main() {
 			<< "1 - Point\n"
 			<< "2 - Vector\n"
 			<< "3 - Line\n"
-			<< "4 - Exit program\n";
-		entry = inputDataInt(1, 4);
+			<< "4 - Triangle\n"
+			<< "5 - Exit program\n";
+		entry = inputDataInt(1, 5);
 
 		switch (entry) {
 		case 1:
@@ -66,6 +53,17 @@ int main() {
 			lineOperation(object);
 			break;
 		case 4:
+			cout << endl << "Enter x, y and z for the point: ";
+			cin >> x >> y >> z;
+			cout << endl << "Enter x, y and z for the second point: ";
+			cin >> x1 >> y1 >> z1;
+			cout << endl << "Enter x, y and z for the third point: ";
+			cin >> x2 >> y2 >> z2;
+			object = new Triangle(Point(x, y, z), Point(x1, y1, z1), Point(x2, y2, z2));
+
+			triangleOperation(object);
+			break;
+		case 5:
 			exitProg = true;
 			break;
 		}

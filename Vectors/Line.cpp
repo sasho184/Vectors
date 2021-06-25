@@ -28,6 +28,7 @@ Element* Line::direction() const {
 Element* Line::normal() const { // https://sciencing.com/plane-3-points-8123924.html
 	//https://math.stackexchange.com/questions/3451205/find-normal-vector-of-a-3d-vector
 	//https://math.stackexchange.com/questions/137362/how-to-find-perpendicular-vector-to-another-vector
+	//http://www.cplusplus.com/forum/general/77959/
 	double x, y, z;
 
 	x = -((getY()+pt.getY()) - pt.getY());

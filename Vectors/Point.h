@@ -29,6 +29,15 @@ public:
     virtual bool operator||(const Element&) const { return 0; };
     Element* getPt() const { return 0; };
 
+    virtual int type() { return 0; };
+    virtual double S() { return 0; };
+    virtual double P() { return 0; };
+    virtual Element* centroid() { return 0; };
+    virtual bool isInside(const Element&) const { return 0; };
+    virtual bool liesOnPlane(const Element&) const { return 0; };
+    virtual bool operator<(const Element&) const { return 0; };
+    virtual bool operator>(const Element&) const { return 0; };
+
 private:
 
 };

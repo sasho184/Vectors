@@ -20,8 +20,12 @@ public:
 	int type();
 	double S();
 	double P();
-	Point centroid();
-	bool isInside(Point);
+	Element* centroid();
+	bool isInside(const Element&) const;
+	bool liesOnPlane(const Element&) const;
+
+	bool operator<(const Element&) const;
+	bool operator>(const Element&) const;
 
 private:
 	Point B;

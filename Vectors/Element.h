@@ -38,6 +38,16 @@ public:
 	virtual bool operator||(const Element&) const=0;
 	virtual Element* getPt() const = 0;
 
+
+	virtual int type() = 0;
+	virtual double S() = 0;
+	virtual double P() = 0;
+	virtual Element* centroid() = 0;
+	virtual bool isInside(const Element&) const = 0;
+	virtual bool liesOnPlane(const Element&) const = 0;
+	virtual bool operator<(const Element&) const = 0;
+	virtual bool operator>(const Element&) const = 0;
+
 private:
 	double x;
 	double y;

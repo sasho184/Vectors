@@ -84,7 +84,7 @@ int vectorOperation(Element* vect1) {
 			<< "7  - Subtractction with another vector\n"
 			<< "8  - Multiplication with a real number\n"
 			<< "9  - Scalar product of two vectors\n"
-			<< "10 - Vector product of two vectors\n"
+			<< "10 - Cross/Vector product of two vectors\n"
 			<< "11 - Mixed product of three vectors\n";
 
 		operation = inputDataInt(1, 11);
@@ -263,6 +263,70 @@ int lineOperation(Element* line1) {
 		if (line2 != nullptr) {
 			delete line2;
 			line2 = nullptr;
+		}
+
+		std::cout << std::endl << "Do you want to select a new operation?(y/n) ";
+		cont = inputDataYN();
+	} while (cont == 'y');
+	return 0;
+}
+
+int triangleOperation(Element* triangle) {
+	char cont = 'n';
+	int operation;
+	double x, y, z;
+	bool result = false;
+	Element* returnObject = nullptr;
+	Element* tempPt = nullptr;
+
+	do {
+		std::cout << std::endl << "Select an operation from the menu: \n"
+			<< "1  - Print triangle type\n"
+			<< "2  - Calculate triangle surface area\n"
+			<< "3  - Calculate triangle perimeter\n"
+			<< "4  - Calculate triangle centroid\n"
+			<< "5  - Check if point is inside and lies on the plane of the triangle\n"
+			<< "6  - Check if point is outside and lies on the plane of the triangle\n";
+
+		operation = inputDataInt(1, 11);
+		cont = 'n';
+		switch (operation) {
+		case 1:
+			triangle->type();
+			break;
+		case 2:
+			std::cout << std::endl << "The surface area of the triangle is: " << triangle->S() << std::endl;
+			break;
+		case 3:
+			std::cout << std::endl << "The perimeter of the triangle is: " << triangle->P() << std::endl;
+			break;
+		case 4:
+			returnObject = triangle->centroid();
+			std::cout << std::endl << "The centroid of the triangle is: " << *returnObject << std::endl;
+			break;
+		case 5:
+			std::cout << std::endl << "Enter x, y and z for the point: ";
+			std::cin >> x >> y >> z;
+			tempPt = new Point(x, y, z);
+			result = *triangle < *tempPt;
+			std::cout << std::endl << (result? "True" : "False") << std::endl;
+			break;
+		case 6:
+			std::cout << std::endl << "Enter x, y and z for the point: ";
+			std::cin >> x >> y >> z;
+			tempPt = new Point(x, y, z);
+			result = *triangle > *tempPt;
+			std::cout << std::endl << (result ? "True" : "False") << std::endl;
+			break;
+		}
+
+		if (returnObject != nullptr) {
+			delete returnObject;
+			returnObject = nullptr;
+		}
+		if (tempPt != nullptr) {
+			delete tempPt;
+			tempPt = nullptr;
 		}
 
 		std::cout << std::endl << "Do you want to select a new operation?(y/n) ";
