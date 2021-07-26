@@ -79,7 +79,6 @@ bool Line::operator==(const Element& rhs) const {
 	Element* pt1 = this->getPt();
 	Element* pt2 = rhs.getPt();
 
-	std::cout << "teardasfas";
 	if (getX() == rhs.getX() && getY() == rhs.getY() && getZ() == rhs.getZ() && *pt1 == *pt2) {
 		delete pt1;
 		delete pt2;

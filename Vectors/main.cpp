@@ -19,7 +19,6 @@ int main() {
 	Element* testObj = nullptr;
 
 	do {
-
 		cout << "Select a geometric object: \n"
 			<< "1 - Point\n"
 			<< "2 - Vector\n"
